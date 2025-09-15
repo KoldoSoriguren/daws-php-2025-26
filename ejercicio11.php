@@ -1,0 +1,9 @@
+<?php
+ $c1 = $_GET['c1'];
+$c2 = $_GET['c2']??"Yenkings";
+function concatenar($c1, $c2) {
+        
+            return $c1 . " " . $c2;
+}
+$c3 = concatenar($c1, $c2);
+?>

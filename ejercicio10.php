@@ -5,8 +5,8 @@
 
         
         $c1 = $_GET['c1'];
-        $c2 = $_GET['c2'];
-        function concatenar($c1, $c2 = "Yenkings") {
+        $c2 = $_GET['c2']??"Yenkings";
+        function concatenar($c1, $c2) {
         
             return $c1 . " " . $c2;
         }
