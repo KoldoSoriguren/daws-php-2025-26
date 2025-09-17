@@ -7,6 +7,7 @@ require 'ejercicio24.php';
     <body>
         <table border="2">
             <?= $respuesta ?>
+            
         </table>
     </body>
 </html>
