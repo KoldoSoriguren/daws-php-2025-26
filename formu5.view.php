@@ -20,7 +20,8 @@
                 <td><?= $value["nombre"] ?></td>
                 <td><?= $value["descripcion"]?></td>
                 <td><?= $value["precio"]?></td>
-                <td><input type='number' name='cantidad_". $producto["nombre"] ."' min='0' value='0'></td>
+                <td><input type='number' name= <?= $key ?> value="0"></td>
+
 
 
             </tr>
@@ -28,10 +29,19 @@
 
 
         <?php endforeach; ?>
+
+
     </table>
         <input type="submit" value="enviar">
 
     </form>
+
+    <?php
+        if (isset($precio_compra)): ?>
+        <p>El precio total es: <?= $precio_compra ?></p>
+    <?php endif; ?>
+    
+   
 
 </body>
 </html>
