@@ -6,7 +6,9 @@ $_Usuarios = [
     ["Nombre" => "root", "Contraseña" => "usbw"]
 ];
 $sesion_iniciada = false;
-$intentos = 0;
+if (!isset($_SESSION['intentos'])) {
+    $_SESSION['intentos'] = 0;
+}
 
 if(isset($_POST["usuario"]) && isset($_POST["contrasena"])){
     $_Usuario = $_POST["usuario"];
@@ -15,15 +17,17 @@ if(isset($_POST["usuario"]) && isset($_POST["contrasena"])){
     foreach ($_Usuarios as $usuario){
         if($usuario["Nombre"] === $_Usuario && $usuario["Contraseña"] === $_Pass){
             $sesion_iniciada = true;
+            $_SESSION["intentos"]= 0;
   
         }
     }
     if(!$sesion_iniciada){
-        $intentos +=1;
+        $_SESSION["intentos"] += 1;
 
     }
-}
 
+
+}
 
 
 
@@ -36,7 +40,6 @@ if(isset($_GET['accion']) && $_GET['accion'] == 'cerrar_sesion'){
 
 function cerrarSesion() {
     session_unset();
-    session_destroy();
 
 }
 
